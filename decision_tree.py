@@ -4,10 +4,8 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 
-# Manually set the path to the Graphviz executable
 os.environ["PATH"] = "/opt/homebrew/bin:" + os.environ["PATH"]
 
-# Your other functions and code
 def calculate_entropy(data):
     label_counts = Counter(data['class'])
     total_count = len(data)
@@ -99,20 +97,20 @@ def plot_tree(tree, parent_name, graph):
         graph.node(leaf_node, label=leaf_label, shape="ellipse", width="0.2", height="0.2")
         graph.edge(parent_name, leaf_node)
 
-# Ensure file exists
+# Ensuring file exists
 data_path = "/Users/nikki/Documents/MyProjects/DecisionTreeProject/src/car.data"
 
 if not os.path.exists(data_path):
     raise FileNotFoundError(f"The data file was not found at {data_path}")
 
-# Read the data
+# Reading the data
 df = pd.read_csv(data_path, names=["buying", "maint", "doors", "persons", "lug_boot", "safety", "class"])
 
-# Prepare the features and build the tree
+# Preparing the features and building the tree
 features = df.columns[df.columns != 'class']
 tree = build_tree(df, features)
 
-# Plot and save the tree
+# Ploting and saving the tree
 graph = Digraph(format='png')
 graph.attr(size='10,10')
 
