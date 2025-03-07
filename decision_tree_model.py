@@ -6,13 +6,13 @@ def entropy(y):
     value_counts = y.value_counts(normalize=True)
     return -sum(value_counts * np.log2(value_counts))
 
-# Define the function to find the best split
+# Defining the function to find the best split
 def best_split(X, y):
     best_entropy = float("inf")
     best_column = None
     best_value = None
 
-    # Iterate through each column to find the best split
+ 
     for column in X.columns:
         values = X[column].unique()
         for value in values:
@@ -33,7 +33,7 @@ def best_split(X, y):
         print("No valid split found.")
     return best_column, best_value
 
-# Define the function to build the decision tree
+# Defining the function to build the decision tree
 def build_tree(X, y, depth=0, max_depth=5):
     if len(y.unique()) == 1 or depth == max_depth:
         return {'class': y.iloc[0]}
