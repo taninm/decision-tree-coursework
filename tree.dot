@@ -1,0 +1,14 @@
+// Decision Tree
+digraph {
+	root [label=Root]
+	root_persons_2 [label="persons=2"]
+	root -> root_persons_2
+	root_persons_2_safety_low [label="safety=low"]
+	root_persons_2 -> root_persons_2_safety_low
+	root_persons_2_safety_low_leaf [label=unacc]
+	root_persons_2_safety_low -> root_persons_2_safety_low_leaf
+	root_persons_2_safety_low_leaf [label=acc]
+	root_persons_2_safety_low -> root_persons_2_safety_low_leaf
+	root_persons_2_leaf [label=acc]
+	root_persons_2 -> root_persons_2_leaf
+}
